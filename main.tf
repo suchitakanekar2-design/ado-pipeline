@@ -12,8 +12,8 @@ provider "azurerm" {
   
 }
 
-resource "azurerm_resource_group" "rg" {
-  name = "Dhondu"
+resource "azurerm_resource_group" "dev-rg" {
+  name = "dev-rg"
   location = "east us"
   
 }
