@@ -1,0 +1,19 @@
+
+
+trigger: none          # in which branch pipeline will run
+pool: linux            # on which agent pipeline will run (on single pool we can run multiple agent) 
+
+steps:
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'ADO-pipeline'
+    backendAzureRmOverrideSubscriptionID: '9f14d6da-b117-434d-922f-f763c8ec88bb'
+    backendAzureRmResourceGroupName: 'suchita-rg'
+    backendAzureRmStorageAccountName: 'suchidevstorage980'
+    backendAzureRmContainerName: 'suchidevstoragecontainer980'
+    backendAzureRmKey: 'suchi.tfstate'
