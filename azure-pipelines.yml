@@ -3,7 +3,13 @@
 trigger: none          # in which branch pipeline will run
 pool: linux            # on which agent pipeline will run (on single pool we can run multiple agent) 
 
+# Step 1: Install unzip (TerraformInstaller ko ye chahiye hota hai)
+
 steps:
+- script: |
+    sudo apt-get update -y
+    sudo apt-get install unzip -y
+  displayName: 'Install unzip utility'
 - task: TerraformInstaller@1
   inputs:
     terraformVersion: 'latest'
